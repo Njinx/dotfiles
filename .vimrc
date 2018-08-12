@@ -19,12 +19,13 @@ command W w "!sudo tee %" " Maps :W to sudo save
 " Edit Settings
 set shiftwidth=4
 set tabstop=4
-set textwidth=80
 nnoremap B ^ " Binds be to jump to beginning of line
 nnoremap E $ " Binds E to jump to end of line
 nnoremap $ <nop> " Nullifies $
 nnoremap ^ <nop> " Nullifies ^
 nnoremap gV `[v`] " Highlights last inserted text
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>as :set ft=nasm<cr>
 
 " Search Settings
 set hlsearch

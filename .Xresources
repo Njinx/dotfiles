@@ -1,0 +1,27 @@
+URxvt*termName: 		rxvt-256color
+URxvt*reverseVideo: 	True
+URxvt*font:				xft:Inconsolata Nerd Font:pixelsize=20, antialias=false
+URxvt*letterSpace:		-1
+URxvt*urlLauncher:		firefox
+URxvt*matcher.button:	1
+URxvt*scrollstyle:		plain
+URxvt*visualBell:		true
+
+urxvt*foreground:		#17202A
+urxvt*background:		#FFFFFF
+urxvt*color0:			#212121
+urxvt*color1:			#C0392B
+urxvt*color2:			#52BE80
+urxvt*color3:			#F1C40F
+urxvt*color4:			#2980B9
+urxvt*color5:			#8E44AD
+urxvt*color6:			#00BCD4
+urxvt*color7:			#F5F5F5
+urxvt*color8:			#333333
+urxvt*color9:			#E74C3C
+urxvt*color10:			#2ECC71
+urxvt*color11:			#FFEB3B
+urxvt*color12:			#3498DB
+urxvt*color13:			#9B59B6
+urxvt*color14:			#26C6DA
+urxvt*color15:			#FFFFFF
