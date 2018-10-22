@@ -16,6 +16,8 @@ function prepend-sudo() {
 	fi
 }
 
+eval $(thefuck --alias)
+
 # Path to your oh-my-zsh installation.
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -100,3 +102,9 @@ ENABLE_CORRECTION="true"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+PATH="/home/ben-allen/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ben-allen/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ben-allen/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ben-allen/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ben-allen/perl5"; export PERL_MM_OPT;
