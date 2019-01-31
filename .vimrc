@@ -11,6 +11,8 @@ Plugin 'git://github.com/vim-airline/vim-airline.git'
 Plugin 'git://github.com/Valloric/YouCompleteMe.git'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'git://github.com/junegunn/fzf.vim.git'
+Plugin 'git://github.com/tpope/vim-ragtag.git'
+Plugin 'git://github.com/joshhartigan/vim-reddit.git'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -69,7 +71,7 @@ filetype off
 " filetype indent on
 
 " Syntax Highlighting
-colo slate
+colo default
 syntax on
 
 " Keymapping Settings
