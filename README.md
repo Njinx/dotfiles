@@ -1,6 +1,6 @@
-#Njinx's dotfiles
+# Njinx's dotfiles
 
-###Includes
+### Includes
 - i3-gaps
 - vim
 - urxvt (Xresources)
