@@ -6,6 +6,7 @@ set $mod Mod1
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
+workspace_layout default
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 1
@@ -21,7 +22,7 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+font xft:HackNerdFont 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -35,7 +36,7 @@ bindsym $mod+Shift+q kill
 # stop internal speaker
 exec rmmod pcspkr
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id rofi -show run /home/ben-allen/.config/rofi/config.rasi
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -187,10 +188,13 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="Firefox"] $ws2
+assign [class="Atom"] $w3
+assign [title="qutebrowser"] $ws2
 assign [class="Spotify"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
+for_window [title="bmenu"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -325,13 +329,15 @@ bar {
 	status_command i3status
 	position bottom
 
+	tray_output primary
+
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:URWGothic-Book 11
+#   font xft:HackNerdFont 11
 	strip_workspace_numbers yes
 
     colors {
@@ -340,11 +346,11 @@ bar {
         separator  #454947
 
 #                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        focused_workspace  #16A085 #16A085 #292F34
+        active_workspace   #353836 #353836 #FDF6E3
+        inactive_workspace #222D31 #222D31 #EEE8D5
+        binding_mode       #2C2C2C #2C2C2C #F9FAF9
+        urgent_workspace   #FDF6E3 #FDF6E3 #E5201D
     }
 }
 
