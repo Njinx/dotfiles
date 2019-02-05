@@ -28,6 +28,7 @@ if [ "$TERM" != "linux" ]; then
 #    install_powerline_precmd
 fi
 
+NOTES_ROOT=/home/ben-allen/Notes; export NOTES_ROOT;
 GOPATH="/home/ben-allen/Go"; export GOPATH;
 LD_LIBRARY_PATH="/lib"; export LD_LIBRARY_PATH;
 PATH="/home/ben-allen/perl5/bin:${GOPATH}/bin${PATH:+:${PATH}}"; export PATH;
