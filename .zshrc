@@ -28,7 +28,11 @@ if [ "$TERM" != "linux" ]; then
 #    install_powerline_precmd
 fi
 
-NOTES_ROOT=/home/ben-allen/Notes; export NOTES_ROOT;
+EDITOR="vim"; export EDITOR;
+VISUAL="vim"; export VISUAL;
+
+CSC_ROOT="/home/ben-allen/Go/src/CyberScoreClient"; export CSC_ROOT;
+NOTES_ROOT="/home/ben-allen/Notes"; export NOTES_ROOT;
 GOPATH="/home/ben-allen/Go"; export GOPATH;
 LD_LIBRARY_PATH="/lib"; export LD_LIBRARY_PATH;
 PATH="/home/ben-allen/perl5/bin:${GOPATH}/bin${PATH:+:${PATH}}"; export PATH;
