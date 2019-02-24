@@ -188,7 +188,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="Firefox"] $ws2
-assign [class="Atom"] $w3
+assign [class="Atom"] $ws3
 assign [title="qutebrowser"] $ws2
 assign [class="Spotify"] $ws8
 
@@ -274,8 +274,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id i3-pixel
-
+bindsym $mod+9 exec --no-startup-id lockscript
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; $compton -b
@@ -288,8 +287,8 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker i3-pixel
-exec_always --no-startup-id ff-theme-util
+# exec --no-startup-id xautolock -time 10 -locker lockscript
+# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # Color palette used for the terminal ( ~/.Xresources file )
