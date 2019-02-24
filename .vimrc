@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'git://github.com/junegunn/limelight.vim.git'
 Plugin 'git://github.com/vim-pandoc/vim-pandoc.git'
+Plugin 'git://github.com/vim-airline/vim-airline-themes.git'
 Plugin 'git://github.com/vim-pandoc/vim-pandoc-syntax.git'
 Plugin 'git://github.com/junegunn/seoul256.vim.git'
 Plugin 'git://git.wincent.com/command-t.git'
@@ -50,6 +51,7 @@ autocmd! User GoyoLeave Limelight!
 map <leader>l :Limelight!!0.3<CR> " Toggles Limelight plugin
 colo seoul256
 let g:seoul256_background = 235 " Set background to dark
+let g:airline_theme = 'bubblegum'
 
 " Write Settings
 set fileencoding=utf-8
@@ -98,7 +100,7 @@ set showcmd
 map ss :shell<CR>
 
 " MD to PDF Settings
-map <leader>p :! clear ; pandoc % -t html5 --css=/home/ben-allen/Pandoc/tufte.css -o /home/ben-allen/Pandoc/PDF/%.pdf<CR><CR>
+map <leader>p :! clear ; pandoc % -t html5 --css=/home/ben-allen/Notes/tufte.css -o /home/ben-allen/Notes/PDF/%.pdf<CR><CR>
 
 " Misc Settings
 set listchars=eol:$,tab:>-,trail:.,nbsp:_,extends:+,precedes:+ " Disables printing of non-printable characters
