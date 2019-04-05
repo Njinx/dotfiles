@@ -14,11 +14,10 @@ Plugin 'git://github.com/junegunn/seoul256.vim.git'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'git://github.com/junegunn/goyo.vim.git'
 Plugin 'git://github.com/vim-airline/vim-airline.git'
-Plugin 'git://github.com/Valloric/YouCompleteMe.git'
+"Plugin 'git://github.com/Valloric/YouCompleteMe.git'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'git://github.com/junegunn/fzf.vim.git'
 Plugin 'git://github.com/tpope/vim-ragtag.git'
-Plugin 'git://github.com/joshhartigan/vim-reddit.git'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -101,12 +100,15 @@ map ss :shell<CR>
 
 " MD to PDF Settings
 map <leader>p :! clear ; pandoc % -t html5 --css=/home/ben-allen/Notes/tufte.css -o /home/ben-allen/Notes/PDF/%.pdf<CR><CR>
+map <leader>pp :! clear ; pandoc % -t html5 --css=/home/ben-allen/Notes/tufte.css -o %.pdf<CR><CR>
 
 " Misc Settings
 set listchars=eol:$,tab:>-,trail:.,nbsp:_,extends:+,precedes:+ " Disables printing of non-printable characters
 set visualbell " Shows bell instead of beeping
 set t_vb= " Required for visual bell
 set nocompatible " Use Vim instead of Vi
-" nnoremap j gj " Tells Vim to move by vertical lines and not skip over wrapped lines
-" nnoremap k gk " Same as above
+noremap j gj " Tells Vim to move by vertical lines and not skip over wrapped lines
+noremap k gk " Same as above
+noremap <Up> gk
+noremap <Down> gj
 set directory=/tmp
