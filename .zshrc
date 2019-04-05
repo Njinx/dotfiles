@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 precmd() {
@@ -10,23 +7,6 @@ precmd() {
 PROMPT='%(!.%F{red}λ%f.%F{cyan}λ%f) %~ %F{green}→%f '
 
 eval $(thefuck --alias)
-
-#function powerline_precmd() {
-#    PS1="$(powerline-shell --shell zsh $?)"
-#}
-
-#function install_powerline_precmd() {
-#  for s in "${precmd_functions[@]}"; do
-#    if [ "$s" = "powerline_precmd" ]; then
-#      return
-#    fi
-#  done
-#  precmd_functions+=(powerline_precmd)
-#}
-
-if [ "$TERM" != "linux" ]; then
-#    install_powerline_precmd
-fi
 
 EDITOR="vim"; export EDITOR;
 VISUAL="vim"; export VISUAL;
