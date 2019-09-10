@@ -112,3 +112,4 @@ noremap k gk " Same as above
 noremap <Up> gk
 noremap <Down> gj
 set directory=/tmp
+noremap <leader>di :digraphs<CR>
