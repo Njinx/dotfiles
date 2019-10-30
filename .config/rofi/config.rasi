@@ -1,16 +1,16 @@
 configuration {
 /*	modi: "window,run,ssh";*/
 	width: 75;
-	lines: 15;
+	lines: 30;
 /*	columns: 1;*/
-	font: "Hack 12";
+	font: "FiraCode 12";
 /*	bw: 1;*/
 	location: 0;
 	padding: 5;
 	yoffset: -200;
 	xoffset: 0;
 /*	fixed-num-lines: true;*/
-/*	show-icons: false;*/
+/*	show-icons: true;*/
 	terminal: "urxvt";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host}";*/
@@ -140,3 +140,5 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+/* vim:ft=css

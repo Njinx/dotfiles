@@ -38,7 +38,7 @@ configuration {
 	hide-scrollbar:              "true";
 	margin:                      0px;
 	padding:                     0px;
-	font:            "HackNerdFont 12";
+	font:            "FiraCode 12";
 }
 
 window {
@@ -95,7 +95,7 @@ entry {
 	background-color: #4A4A4A;
 	vertical-align: 1;
 	padding:        12px;
-	font:           "HackNerdFont 15";
+	font:           "FiraCode 15";
 }
 
 element normal.normal {
@@ -145,3 +145,5 @@ element alternate.active {
 	background-color: @active-background;
 	text-color:       @active-foreground;
 }
+
+/* vim:ft=css

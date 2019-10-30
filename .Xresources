@@ -7,7 +7,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 URxvt*letterSpace:	0
-URxvt*font:			xft:HackNerdFont:size=16
+URxvt*font:			xft:FiraCode Nerd Font:size=18
 
 URxvt*background: #262626
 URxvt*foreground: #d0d0d0
