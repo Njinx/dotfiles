@@ -11,13 +11,18 @@ precmd() {
     [[ -n vcs_info_msg_0_ ]] && print -v 'psvar[1]' -Pr -- "$vcs_info_msg_0_"
 }
 
-PROMPT='%(!.%F{red}λ%f.%F{cyan}λ%f) %~ %F{green}%B%1v%b →%f '
+PROMPT='%(!.%F{red}λ%f.%F{cyan}λ%f) %~
+%F{green}%B%b%f '
+RPROMPT='%F{green}%B%1v%b%f'
 
 eval $(thefuck --alias)
 
-alias ll=ls -l
-alias la=ls -a
-alias lla=ls -la
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+alias please="sudo"
+alias genuis="genius"
+alias urxvt-reload="xrdb /home/ben-allen/.Xresources"
 
 EDITOR="vim"; export EDITOR;
 VISUAL="vim"; export VISUAL;
