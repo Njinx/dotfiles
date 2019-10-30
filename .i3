@@ -22,7 +22,7 @@ hide_edge_borders none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:HackNerdFont 11
+font xft:FiraCode Nerd Font 12
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -33,13 +33,14 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# stop internal speaker
-exec rmmod pcspkr
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run /home/ben-allen/.config/rofi/config.rasi
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
+
+# start sms notifier
+exec /home/ben-allen/Packages/smsnotifyd/smsnotifyd &
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -184,12 +185,16 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="Firefox"] $ws2
+assign [class="Firefox Developer Edition"] $ws2
 assign [class="Atom"] $ws3
+assign [class="Code"] $ws3
 assign [class="Brave-browser"] $ws2
 assign [class="Spotify"] $ws8
+assign [title="spt"] $ws8
 
 # Open specific applications in floating mode
 for_window [class="shadowsocks-qt5"] floating enable border pixel 1
+for_window [class="nm-connection-editor"] floating enable border pixel 1
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="bmenu"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -322,7 +327,8 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command i3blocks
+	status_command exec /home/ben-allen/Go/src/barista/samples/sample-bar/mybar
+	#status_command i3status
 	position bottom
 
 	tray_output primary
@@ -333,8 +339,9 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:HackNerdFont 11
-	strip_workspace_numbers yes
+	font pango:FiraCode Nerd Font 14
+	#font pango:DejaVu Sans Mono 14
+	strip_workspace_numbers no
 
     colors {
         background #222D31
