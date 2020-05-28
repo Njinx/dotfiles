@@ -5,4 +5,7 @@
 - vim
 - urxvt (Xresources)
 - zsh
-- oh-my-zsh theme
+- rofi
+- dunst
+- betterlockscreen
+- compton
