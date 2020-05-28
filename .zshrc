@@ -30,7 +30,8 @@ alias getwinclass="xprop WM_CLASS"
 alias rsync="rsync -avs --progress"
 alias zsource="source $HOME/.zshrc"
 alias vsource="source $HOME/.vimrc"
-alias sidequest="/home/ben-allen/Packages/SideQuest-0.10.2/sidequest"
+alias sidequest="/home/ben-allen/Packages/SideQuest-*/sidequest"
+alias pubip="curl http://ipecho.net/plain ; echo"
 
 # Variables
 EDITOR="vim"; export EDITOR;
