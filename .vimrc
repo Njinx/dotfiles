@@ -10,6 +10,7 @@ Plugin 'git://github.com/junegunn/limelight.vim.git'
 Plugin 'git://github.com/vim-pandoc/vim-pandoc.git'
 Plugin 'git://github.com/vim-airline/vim-airline-themes.git'
 Plugin 'git://github.com/vim-pandoc/vim-pandoc-syntax.git'
+Plugin 'git://github.com/tpope/vim-eunuch.git'
 Plugin 'git://github.com/junegunn/seoul256.vim.git'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'git://github.com/junegunn/goyo.vim.git'
@@ -18,6 +19,7 @@ Plugin 'git://github.com/vim-airline/vim-airline.git'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'git://github.com/junegunn/fzf.vim.git'
 Plugin 'git://github.com/tpope/vim-ragtag.git'
+Plugin 'git://github.com/dense-analysis/ale.git'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -63,8 +65,6 @@ set shiftwidth=4
 set tabstop=4
 nnoremap B ^ " Binds be to jump to beginning of line
 nnoremap E $ " Binds E to jump to end of line
-nnoremap $ <nop> " Nullifies $
-nnoremap ^ <nop> " Nullifies ^
 nnoremap gV `[v`] " Highlights last inserted text
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>as :set ft=nasm<cr>
@@ -113,3 +113,17 @@ noremap <Up> gk
 noremap <Down> gj
 set directory=/tmp
 noremap <leader>di :digraphs<CR>
+noremap <leader>la i<C-k>l*
+
+" Support Unicode
+if has("multi_byte")
+	if &termencoding == ""
+		let &termencoding = &encoding
+	endif
+	set encoding=utf-8
+	setglobal fileencoding=utf-8
+	" Uncomment to have 'bomb' on by default for new files.
+	" Note, this will not apply to the first, empty buffer created at Vim startup.
+	"setglobal bomb
+	set fileencodings=ucs-bom,utf-8,latin1
+endif
