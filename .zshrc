@@ -91,3 +91,26 @@ tmpc() {
 	main.c
 	code Makefile
 }
+
+# Misc functions
+mksh() {
+	fname="$1"
+
+	if [[ -f "$fname" ]]; then
+		echo "File \"$fname\" already exists"
+	else
+		echo -n "#!/bin/sh\n\n\n" > "$fname"
+		$EDITOR "$fname"
+	fi
+}
+
+mkbash() {
+	fname="$1"
+
+	if [[ -f "$fname" ]]; then
+		echo "File \"$fname\" already exists"
+	else
+		echo -n "#!/bin/bash\n\n\n" > "$fname"
+		$EDITOR "$fname"
+	fi
+}
