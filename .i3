@@ -60,7 +60,6 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec brave
 bindsym $mod+F3 exec ranger
 bindsym $mod+t exec --no-startup-id pkill $compton
 bindsym $mod+Ctrl+t exec --no-startup-id $compton -b
@@ -187,14 +186,16 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="Firefox"] $ws2
 assign [class="Firefox Developer Edition"] $ws2
 assign [class="Atom"] $ws3
-assign [class="Code"] $ws3
+assign [class="code-oss"] $ws3
+assign [class="CLion"] $ws3
 assign [class="Brave-browser"] $ws2
 assign [class="Spotify"] $ws8
 assign [title="spt"] $ws8
 
 # Open specific applications in floating mode
 for_window [class="shadowsocks-qt5"] floating enable border pixel 1
-for_window [class="nm-connection-editor"] floating enable border pixel 1
+for_window [title="CyberScoreClient"] floating enable border pixel 1
+for_window [class="Nm-connection-editor"] floating enable border pixel 1
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="bmenu"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -293,6 +294,11 @@ exec --no-startup-id start_conky_maia
 # exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
+# Bind workspaces to second monitor
+workspace $ws1 output eDP1
+workspace $ws2 output HDMI1
+workspace $ws3 output HDMI1
+
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
@@ -382,9 +388,6 @@ gaps outer -2
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
 # gaps outer all plus 5
-
-# Start f.lux
-exec --no-startup-id fluxgui
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
