@@ -11,7 +11,6 @@ precmd() {
     vcs_info
     [[ -n vcs_info_msg_0_ ]] && print -v 'psvar[1]' -Pr -- "$vcs_info_msg_0_"
 }
-
 # Terminal prompt
 PROMPT='%(!.%F{red}λ%f.%F{cyan}λ%f) %~
 %F{green}%b%b%f '
@@ -32,6 +31,8 @@ alias zsource="source $HOME/.zshrc"
 alias vsource="source $HOME/.vimrc"
 alias sidequest="/home/ben-allen/Packages/SideQuest-*/sidequest"
 alias pubip="curl http://ipecho.net/plain ; echo"
+alias clip="xclip -selection c"
+alias sysinfo="inxi -Fxxx"
 
 # Variables
 EDITOR="vim"; export EDITOR;
@@ -45,8 +46,10 @@ BROWSER="firefox-developer-edition"; export BROWSER;
 LD_LIBRARY_PATH="/lib"; export LD_LIBRARY_PATH;
 LIBCLANG_PATH="/usr/lib64/llvm/*/lib64"; export LIBCLANG_PATH;
 JAVA_HOME="/usr/lib/jvm/java-13-openjdk"; export JAVA_HOME;
+RUSTPATH="$HOME/Rust"
+CARGO_HOME="$HOME/.cargo"
 
-PATH="${GOPATH}/bin${PATH:+:${PATH}}"; export PATH;
+PATH="${GOPATH}/bin:${CARGO_HOME}/bin${PATH:+:${PATH}}"; export PATH;
 
 # Directory hashes
 hash -d packages="$HOME/Packages"
@@ -83,7 +86,7 @@ tmpgo() {
 tmpc() {
 	name=$1
 
-	tmpdir="$(mktemp -p "$CPATH" -d "tmpgo_${name}_XXXX")"
+	tmpdir="$(mktemp -p "$CPATH" -d "tmpc_${name}_XXXX")"
 	cd "$tmpdir"
 
 	echo -n "#include \"stdio.h\"\n\nint main() {\n\n\treturn 0;\n}" > main.c
