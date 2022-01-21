@@ -1,18 +1,18 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+	modi: "window,run,ssh,filebrowser";
 	width: 75;
-	lines: 30;
-/*	columns: 1;*/
+	lines: 15;
+	columns: 2;
 	font: "FiraCode 12";
 /*	bw: 1;*/
 	location: 0;
 	padding: 5;
-	yoffset: -200;
+	yoffset: 0;
 	xoffset: 0;
 /*	fixed-num-lines: true;*/
 /*	show-icons: true;*/
 	terminal: "urxvt";
-/*	ssh-client: "ssh";*/
+	ssh-client: "ssh";
 /*	ssh-command: "{terminal} -e {ssh-client} {host}";*/
 /*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
@@ -28,7 +28,7 @@ configuration {
 /*	sorting-method: ;*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-	sidebar-mode: true;
+	sidebar-mode: false;
 /*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
@@ -52,7 +52,7 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "material-side";
+	/*theme: "slate"; */
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -140,5 +140,6 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+@theme "slate"
 
 /* vim:ft=css

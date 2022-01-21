@@ -20,6 +20,29 @@ hide_edge_borders none
 #bindsym $mod+y border pixel 1
 #bindsym $mod+n border normal
 
+# swap i3 workspaces
+#bindsym $mod+x exec --no-startup-id $HOME/Packages/i3-display-swap/i3-display-swap.bash
+
+# switch workspace output
+bindsym $mod+Ctrl+Shift+1 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 1
+bindsym $mod+Ctrl+Shift+2 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 2
+bindsym $mod+Ctrl+Shift+3 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 3
+bindsym $mod+Ctrl+Shift+4 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 4
+bindsym $mod+Ctrl+Shift+5 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 5
+bindsym $mod+Ctrl+Shift+6 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 6
+bindsym $mod+Ctrl+Shift+7 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 7
+bindsym $mod+Ctrl+Shift+8 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 8
+bindsym $mod+Ctrl+Shift+9 exec --no-startup-id $HOME/Packages/i3-switch-workspace/i3-switch-workspace.py 9
+
+# Rofi xrandr
+bindsym $mod+Ctrl+Shift+x exec --no-startup-id /home/ben-allen/Packages/dmenu_xrandr/dmenu_xrandr.sh 
+
+# open trig cheatsheet
+bindsym $mod+Shift+t exec --no-startup-id xdg-open "https://trigidentities.info/wp-content/uploads/2019/03/Trig-Identities-Download-926x1024.png"
+
+# rofi calc
+bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font xft:FiraCode Nerd Font 12
@@ -34,39 +57,57 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run /home/ben-allen/.config/rofi/config.rasi
+bindsym $mod+d exec --no-startup-id rofi -show drun $HOME/.config/rofi/config.rasi
+bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh $HOME/.config/rofi/config.rasi
+
+# start KDE connect
+#exec --no-startup-id /usr/lib/kdeconnectd
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-# start sms notifier
-exec /home/ben-allen/Packages/smsnotifyd/smsnotifyd &
+# start udiskie
+exec --no-startup-id udiskie -ans
+
+# disable caps lock
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id volumeicon
+exec --no-startup-id pa-applet
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "$HOME/Packages/brightness-controls/brightness-controls.sh inc"
+bindsym XF86MonBrightnessDown exec "$HOME/Packages/brightness-controls/brightness-controls.sh dec"
+
+# Media controls
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+#bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F3 exec ranger
-bindsym $mod+t exec --no-startup-id pkill $compton
-bindsym $mod+Ctrl+t exec --no-startup-id $compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+#bindsym $mod+t exec --no-startup-id pkill $compton
+#bindsym $mod+Ctrl+t exec --no-startup-id $compton -b
+#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+#bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+#bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
@@ -120,7 +161,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+#bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -137,7 +178,9 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Compton
-set $compton compton --backend glx --paint-on-overlay --vsync opengl-swc
+#set $compton picom --backend glx --paint-on-overlay --vsync opengl-swc
+set $compton picom --paint-on-overlay --vsync opengl-swc
+#exec_always --no-startup-id picom --config /home/ben-allen/.config/picom.conf
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -184,17 +227,28 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="Firefox"] $ws2
-assign [class="Firefox Developer Edition"] $ws2
+assign [class="firefoxdeveloperedition"] $ws2
 assign [class="Atom"] $ws3
 assign [class="code-oss"] $ws3
+assign [class="jetbrains-idea"] $ws3
 assign [class="CLion"] $ws3
 assign [class="Brave-browser"] $ws2
 assign [class="Spotify"] $ws8
-assign [title="spt"] $ws8
+assign [class="YouTube Music"] $ws8
+assign [class="guayadeque"] $ws8
+assign [title="Slack"] $ws4
+assign [class="discord"] $ws4
+assign [title="Signal"] $ws4
+assign [title="zoom"] $ws5
+assign [title="Microsoft Teams - Preview"] $ws5
 
 # Open specific applications in floating mode
 for_window [class="shadowsocks-qt5"] floating enable border pixel 1
+for_window [title=".*TexText.*"] floating enable border pixel 1
+for_window [title="i3-floating"] floating enable border pixel 1
+for_window [title="edu-iu-c212-ArcadeMain"] floating enable border pixel 1
 for_window [title="CyberScoreClient"] floating enable border pixel 1
+for_window [title="QuickDict"] floating enable
 for_window [class="Nm-connection-editor"] floating enable border pixel 1
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="bmenu"] floating enable border pixel 1
@@ -276,28 +330,31 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
+# lock screen
 bindsym $mod+9 exec --no-startup-id betterlockscreen --lock
+exec --no-startup-id betterlockscreen -u $HOME/Documents/software-development-background.jpg
+
+# flameshot
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; $compton -b
+#exec --no-startup-id nitrogen --restore; sleep 1; $compton -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
+#exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker lockscript
-# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # Bind workspaces to second monitor
-workspace $ws1 output eDP1
-workspace $ws2 output HDMI1
-workspace $ws3 output HDMI1
+workspace $ws1 output DP-2
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -333,7 +390,7 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command exec /home/ben-allen/Go/src/barista/samples/sample-bar/mybar
+	status_command exec $HOME/Go/src/barista/samples/sample-bar/mybar
 	#status_command i3status
 	position bottom
 
@@ -365,6 +422,9 @@ bar {
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
+
+# load xrandr config
+exec --no-startup-id bash $HOME/.screenlayout/default.sh
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border

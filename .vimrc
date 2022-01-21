@@ -15,7 +15,6 @@ Plugin 'git://github.com/junegunn/seoul256.vim.git'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'git://github.com/junegunn/goyo.vim.git'
 Plugin 'git://github.com/vim-airline/vim-airline.git'
-"Plugin 'git://github.com/Valloric/YouCompleteMe.git'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'git://github.com/junegunn/fzf.vim.git'
 Plugin 'git://github.com/tpope/vim-ragtag.git'
@@ -53,6 +52,7 @@ map <leader>l :Limelight!!0.3<CR> " Toggles Limelight plugin
 colo seoul256
 let g:seoul256_background = 235 " Set background to dark
 let g:airline_theme = 'bubblegum'
+map <leader>e :ALEDetail<CR>
 
 " Write Settings
 set fileencoding=utf-8
@@ -77,10 +77,10 @@ set smartcase
 set magic " Regex
 map q :NERDTreeToggle<CR> " Toggle directory tree
 map ;; :Files<CR> " Toggles fuzzy searching
-map <leader>go :Goyo 115x40<CR> " Toggles Non-distracting writing (Goyo) width: 115, height: 40
+map <leader>go :Goyo 300x150<CR> " Toggles Non-distracting writing (Goyo) width: 150, height: 40
 
 " File Type Settings
-filetype off
+filetype on
 " filetype plugin on
 " filetype indent on
 
@@ -99,7 +99,7 @@ set showcmd
 map ss :shell<CR>
 
 " MD to PDF Settings
-map <leader>p :! clear ; pandoc % -t html5 --css=/home/ben-allen/Notes/tufte.css -o /home/ben-allen/Notes/PDF/%.pdf<CR><CR>
+" map <leader>p :! clear ; pandoc % -t html5 --css=/home/ben-allen/Notes/tufte.css -o /home/ben-allen/Notes/PDF/%.pdf<CR><CR>
 map <leader>pp :! clear ; pandoc % -t html5 --css=/home/ben-allen/Notes/tufte.css -o %.pdf<CR><CR>
 
 " Misc Settings
