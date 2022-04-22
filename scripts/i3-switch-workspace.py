@@ -1,1 +1,26 @@
-/home/ben-allen/Packages/i3-switch-workspace/i3-switch-workspace.py
+#!/usr/bin/env python
+
+from json import loads
+from os import popen
+from sys import argv
+
+def ipc_query(req="command", msg=""):
+    ans = popen("i3-msg -t " + req + " " +  msg).readlines()[0]
+    return loads(ans)
+
+if __name__ == "__main__":
+    # Usage & checking args
+    if len(argv) != 2:
+        exit(-1)
+
+    newworkspace = argv[1]
+
+    # Retrieving active display
+    active_display = None
+    for w in ipc_query(req="get_workspaces"):
+        if w['focused']:
+            active_display = w['output']
+
+    # Moving workspace to active display
+    print(ipc_query(msg="'workspace " + newworkspace + "; move workspace to output " + active_display + "; workspace " + newworkspace + "'"))
+

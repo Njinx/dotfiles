@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo '' > /tmp/todolist-kernel.txt;
+
+count=0;
+for entry in `find . -name '*TODO*'`; do
+	echo $count'. '$entry`git log --pretty=format:' Last edited %ar' $entry | head -1` >> /tmp/todolist-kernel.txt;
+	echo '' >> /tmp/todolist-kernel.txt;
+	sed 's/^/        /' $entry >> /tmp/todolist-kernel.txt;
+	echo '' >> /tmp/todolist-kernel.txt; ((count=$count+1));
+done;
+
+echo 'TODO list written to /tmp/todolist-kernel.txt'
