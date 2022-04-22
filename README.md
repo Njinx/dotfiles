@@ -36,8 +36,7 @@ Deploying rofi
 dotfiles $ cd home/
 dotfiles/home $ stow rofi
 ...
-# Rofi has config files outside $HOME 
-# so we have to deploy those as well.
+# Rofi has config files outside $HOME so we have to deploy those as well.
 dotfiles/home $ cd ../root
 dotfiles/root $ sudo stow rofi
 ...
