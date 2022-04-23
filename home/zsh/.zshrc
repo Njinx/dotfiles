@@ -33,6 +33,7 @@ RPROMPT='%F{green}%B%1v%b%f'
 
 source "$HOME/.profile"
 source "$HOME/.zsh_aliases"
+source "$HOME/.zsh/copython"
 
 # Functions
 function dg {
