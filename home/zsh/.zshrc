@@ -233,11 +233,11 @@ zle -N toggle_oneline_prompt
 bindkey ^P toggle_oneline_prompt
 
 # Enable auto-suggestions based on the history
-if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+#    . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     # Change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
+#    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+#fi
 
 # Rehash when $PATH contents is modified
 zshcache_time="$(date +%s%N)"
