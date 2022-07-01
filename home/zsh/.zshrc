@@ -57,16 +57,30 @@ function pname {
 	cat "/proc/$1/status" | grep "Name:" | cut -f2-
 }
 
+function easysshfs {
+	[[ $# -ne 4 ]] && echo "USAGE: $0 UID/GID REMOTE LOCAL"
+
+	sshfs -o allow_other,default_permissions,uid=$1,gid=$1 -F /home/ben-allen/.ssh/config $2 $3
+
+}
+
 function say {
 	mpg123 "http://translate.google.com/translate_tts?tl=en-US&client=tw-ob&q=$(echo -n "$1" | urlencode)" 2>/dev/null
 }
 
+function deftrackers {
+	echo "udp://tracker.opentrackr.org:1337/announce"
+	echo "udp://tracker.openbittorrent.com:6969"
+	echo "udp://tracker.torrent.eu.org:451"
+}
+
 # Directory hashes
-hash -d packages="$HOME/Packages"
+hash -d pkgs="$HOME/Packages"
 hash -d go="$HOME/Go/src"
 hash -d cs="$HOME/C291"
 hash -d htb="$HOME/HackTheBox"
 hash -d latex="$HOME/LaTeX"
+hash -d .="$HOME/dotfiles"
 
 # Suffix aliases
 alias -s {c,h}=code
@@ -290,3 +304,5 @@ PERL5LIB="/home/ben-allen/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL
 PERL_LOCAL_LIB_ROOT="/home/ben-allen/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/ben-allen/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/ben-allen/perl5"; export PERL_MM_OPT;
+
+bindkey -e

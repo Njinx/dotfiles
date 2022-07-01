@@ -7,4 +7,7 @@
     "python.experiments.enabled": false,
     "editor.fontLigatures": true,
     "python.linting.mypyEnabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.bracketPairColorization.enabled": true,
+    "go.toolsManagement.autoUpdate": true,
 }
