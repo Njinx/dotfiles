@@ -241,7 +241,7 @@ assign [class="code-oss"] $ws3
 assign [class="jetbrains-idea"] $ws3
 assign [class="CLion"] $ws3
 assign [class="Brave-browser"] $ws2
-assign [class="Spotify"] $ws8
+assign [class="spotify"] $ws8
 assign [class="YouTube Music"] $ws8
 assign [class="guayadeque"] $ws8
 assign [title="Slack"] $ws4
@@ -373,6 +373,7 @@ workspace $ws1 output HDMI-0
 workspace $ws2 output DP-3 DP-2
 workspace $ws3 output DP-2
 workspace $ws4 output DP-2
+workspace $ws8 output HDMI-0 DP-2
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
