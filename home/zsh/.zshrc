@@ -53,6 +53,24 @@ function mkcd {
 	cd "$1"
 }
 
+function pkgupstream {
+	pacman -Qi "$1" | grep -E "^URL\s*:" | awk '{print $3}'
+}
+
+function clip {
+	# If in pipe
+	if [ ! -t 0 ]; then
+		xclip -selection c
+	else
+		# If first argument is a file
+		if [ -f "$1" ]; then
+			xclip -selection c < "$1"
+		else
+			echo -n "$1" | xclip -selection c
+		fi
+	fi
+}
+
 function pname {
 	cat "/proc/$1/status" | grep "Name:" | cut -f2-
 }

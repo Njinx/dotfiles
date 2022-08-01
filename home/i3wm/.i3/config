@@ -253,7 +253,6 @@ assign [title="Microsoft Teams - Preview"] $ws5
 # Auto-open programs
 exec --no-startup-id /usr/bin/urxvt 
 exec --no-startup-id /usr/bin/firefox-developer-edition 
-exec --no-startup-id /usr/bin/thunderbird 
 exec --no-startup-id /usr/bin/signal-desktop
 exec --no-startup-id /usr/bin/discord 
 
@@ -284,6 +283,7 @@ for_window [class="octopi"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="qt6ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
